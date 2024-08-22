@@ -40,6 +40,7 @@ export default [
         { allowConstantExport: true },
       ],
       'prettier/prettier': 'error',
+      'react/prop-types': 'off',
     },
   },
 ];
