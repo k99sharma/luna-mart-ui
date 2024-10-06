@@ -1,15 +1,10 @@
 // importing modules
-import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
 // importing components
-import App from './pages/app/App';
+import App from './pages/app';
 
 // importing css
 import './styles/index.css';
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+createRoot(document.getElementById('root')).render(<App />);
