@@ -1,13 +1,21 @@
 // importing components
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button, TextField } from '@mui/material';
+import { useState } from 'react';
 
 // importing constants
-import { PagePath } from '../../config/Constants';
-import { useState } from 'react';
+import { PagePath, UserRole } from '../../config/Constants';
+
+// importing store
+import useAuthStore from '../../store/authStore';
 
 // login page
 function Login() {
+  const navigate = useNavigate();
+
+  // authStore
+  const { login } = useAuthStore();
+
   // states
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -29,9 +37,22 @@ function Login() {
     console.log(email);
     console.log(password);
 
-    // reset state
-    setEmail('');
-    setPassword('');
+    // dummy data
+    const user = {
+      username: 'jon.doe',
+      email: 'jondoe@email.com',
+    };
+
+    const role = UserRole.CUSTOMER;
+    const token = 'token';
+
+    // login user
+    login(user, role, token);
+
+    console.log('User logged in.');
+
+    // redirect user to home page
+    navigate(PagePath.HOME);
   };
 
   return (
@@ -65,7 +86,9 @@ function Login() {
           </div>
 
           <div className="login__form__submit">
-            <Button variant="contained">Login</Button>
+            <Button type="submit" variant="contained">
+              Login
+            </Button>
           </div>
         </form>
       </div>

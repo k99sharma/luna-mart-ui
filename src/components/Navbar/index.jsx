@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom';
 
 // importing constants
 import { PagePath } from '../../config/Constants';
+import useAuthStore from '../../store/authStore';
 
 // navbar
 const Navbar = () => {
+  // store
+  const { isAuthenticated } = useAuthStore();
+
   return (
     <div className="navbar py-3 flex justify-around align-bottom">
       <div className="navbar__banner">
@@ -19,13 +23,15 @@ const Navbar = () => {
       </div>
 
       <div className="navbar__user__actions flex">
-        <div className="navbar__user__actions__login mx-5">
-          <Link to={PagePath.LOGIN}>Login</Link>
-        </div>
-
-        <div className="navbar__user__actions__account mx-5">
-          <Link to={PagePath.ACCOUNT}>Account</Link>
-        </div>
+        {isAuthenticated ? (
+          <div className="navbar__user__actions__account mx-5">
+            <Link to={PagePath.ACCOUNT}>Account</Link>
+          </div>
+        ) : (
+          <div className="navbar__user__actions__login mx-5">
+            <Link to={PagePath.LOGIN}>Login</Link>
+          </div>
+        )}
 
         <div className="navbar__user_actions__wishlist mx-5">
           <Link to={PagePath.WISHLIST}>Wishlist</Link>
