@@ -1,5 +1,4 @@
 // importing components
-import { Button } from '@mui/material';
 import useAuthStore from '../../store/authStore';
 import { useNavigate } from 'react-router-dom';
 import { PagePath } from '../../config/Constants';
@@ -23,9 +22,7 @@ function Account() {
   return (
     <div className="account">
       <div className="account__logout">
-        <Button onClick={handleLogout} variant="contained" color="error">
-          Logout
-        </Button>
+        <button onClick={handleLogout}>Logout</button>
       </div>
     </div>
   );

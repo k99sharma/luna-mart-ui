@@ -11,7 +11,7 @@ const Navbar = () => {
   const { isAuthenticated } = useAuthStore();
 
   return (
-    <div className="navbar py-3 flex justify-around align-bottom">
+    <div className="navbar py-3 flex justify-between align-bottom">
       <div className="navbar__banner">
         <Link to={PagePath.HOME}>Luna Mart</Link>
       </div>

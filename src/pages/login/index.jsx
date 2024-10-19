@@ -1,6 +1,5 @@
 // importing components
 import { Link, useNavigate } from 'react-router-dom';
-import { Button, TextField } from '@mui/material';
 import { useState } from 'react';
 
 // importing constants
@@ -62,11 +61,9 @@ function Login() {
       <div className="login__form my-5">
         <form onSubmit={handleSubmit}>
           <div className="login__form__email mb-3">
-            <TextField
-              size="small"
+            <input
               label="Email"
               placeholder="joe@email.com"
-              variant="outlined"
               type="email"
               onChange={handleEmail}
               required
@@ -74,11 +71,9 @@ function Login() {
           </div>
 
           <div className="login__form__password mb-3">
-            <TextField
-              size="small"
+            <input
               label="Password"
               placeholder="******"
-              variant="outlined"
               type="password"
               onChange={handlePassword}
               required
@@ -86,9 +81,7 @@ function Login() {
           </div>
 
           <div className="login__form__submit">
-            <Button type="submit" variant="contained">
-              Login
-            </Button>
+            <button type="submit">Login</button>
           </div>
         </form>
       </div>

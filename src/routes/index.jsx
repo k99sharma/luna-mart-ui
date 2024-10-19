@@ -10,6 +10,7 @@ import Account from '../pages/account';
 import Wishlist from '../pages/wishlist';
 import Login from '../pages/login';
 import Register from '../pages/register';
+import Page404 from '../pages/page404';
 import AdminLogin from '../pages/admin/login';
 import AdminAccount from '../pages/admin/account';
 import useAuthStore from '../store/authStore';
@@ -43,6 +44,7 @@ const PageRouter = () => {
               <Route path="/admin/login" exact element={<AdminLogin />} />
             </>
           )}
+          <Route path="*" exact element={<Page404 />} />
         </Routes>
       </Layout>
     </Router>
